@@ -1,13 +1,19 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
+import { Navbar } from "@/components/Navbar";
+import { config } from "../../data";
+import { About } from "@/components/About";
 
 export default function Home() {
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}>
-        First change
-      </main>
+    <div className="">
+      <div>
+        <Navbar />
+      </div>
+      <div className="flex flex-col md:ml-48">
+        <div className="h-screen bg-green-200"></div>
+        <About />
+        <div id="projects" className="h-screen w-full bg-gray-400"></div>
+        <div id="education" className="h-screen w-full bg-orange-300"></div>
+      </div>
+    </div>
   );
 }
