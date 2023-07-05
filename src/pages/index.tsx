@@ -1,5 +1,9 @@
 import { Navbar } from "@/components/Navbar";
 import { About } from "@/components/About";
+import { Projects } from "@/components/Projects";
+import { Skills } from "@/components/Skills";
+import { Education } from "@/components/Education";
+import { Contact } from "@/components/Contact";
 
 export default function Home() {
   return (
@@ -8,10 +12,10 @@ export default function Home() {
       <div className="flex flex-col md:ml-48">
         <div className="h-screen bg-green-200"></div>
         <About />
-        <div id="projects" className="h-screen w-full bg-gray-400"></div>
-        <div id="skill" className="h-screen w-full bg-orange-300"></div>
-        <div id="education" className="h-screen w-full bg-orange-300"></div>
-        <div id="contact" className="h-screen w-full bg-orange-300"></div>
+        <Projects />
+        <Skills />
+        <Education />
+        <Contact />
       </div>
     </div>
   );
