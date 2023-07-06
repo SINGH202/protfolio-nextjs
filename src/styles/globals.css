@@ -25,7 +25,7 @@ body {
   background: url(/assets/img/bg.png) repeat;
 }
 
-a.hoverline {
+.hoverline {
   border-bottom: 3px solid transparent;
   padding: 3px 3px 0 3px;
   transition: 0.25s all;
@@ -33,7 +33,7 @@ a.hoverline {
   -webkit-transition: 0.25s all;
 }
 
-a.hoverline:hover {
+.hoverline:hover {
   border-bottom: 3px solid #004d40;
 }
 .teal {
@@ -86,4 +86,8 @@ a.hoverline:hover {
 
 .teal {
   background-color: #008073 !important;
+}
+
+.contact-text{
+    color: #666 !important;
 }

@@ -1,10 +1,25 @@
+import { useRouter } from "next/router";
+import { config } from "../../data";
 import { SectionHeader } from "./SectionHeader";
+import { ReactElement } from "react";
 
 export const Contact = () => {
   return (
-    <div id="contact" className="h-screen w-full bg-orange-600">
+    <div id="contact" className="h-screen w-full">
       <SectionHeader title="Contact" />
-      {/* <ContactOption link={""} content={"+918874940467"} toolTip={""} /> */}
+      <div className="flex flex-col justify-center lg:justify-start gap-5 p-5 md:p-[40px] mb-14">
+        {config?.contactInfo.map((contact, index) => (
+          <ContactOption
+            key={`contact-info-${index}`}
+            link={contact?.link}
+            content={contact?.content}
+            icon={
+              <contact.icon className="bg-[#607d8b] text-[#ffffff] rounded-full w-12 h-12 p-2" />
+            }
+            tooltip={contact?.tooltip}
+          />
+        ))}
+      </div>
     </div>
   );
 };
@@ -12,17 +27,44 @@ export const Contact = () => {
 export type ContactOptionProps = {
   link: string;
   content: string;
-  toolTip: string;
+  icon: ReactElement;
+  tooltip: string;
 };
 
-export const ContactOption = ({ content }: ContactOptionProps) => {
-    
+export const ContactOption = ({
+  content,
+  link,
+  tooltip,
+  icon,
+}: ContactOptionProps) => {
+  const router = useRouter();
   return (
-    <p>
-      <a aria-label="" data-aria-posinset={"top"} href="">
-        {content}
-      </a>
-      <span className="tooltip">This is a tooltip</span>
-    </p>
+    <div className="md:w-2/3 relative">
+      {link ? (
+        <a href={link} className="">
+          <div className="flex items-center gap-10">
+            <div className="group">
+              {icon}
+              <p className="hidden group-hover:flex absolute bottom-14 z-20 left-0 right-0 bg-black text-white rounded-sm opacity-80 p-2 w-fit max-w-xs ">
+                {tooltip}
+              </p>
+            </div>
+            <p className="hoverline">{content}</p>
+          </div>
+        </a>
+      ) : (
+        <a className="">
+          <div className="flex items-center gap-10">
+            <div className="group">
+              {icon}
+              <p className="hidden group-hover:flex absolute bottom-14 bg-black text-white rounded-sm opacity-80 p-2 ">
+                {tooltip}
+              </p>
+            </div>
+            <p className="hoverline"> {content}</p>
+          </div>
+        </a>
+      )}
+    </div>
   );
 };

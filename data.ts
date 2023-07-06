@@ -4,7 +4,10 @@ import AssessmentIcon from "@mui/icons-material/Assessment";
 import SchoolIcon from "@mui/icons-material/School";
 import EmailIcon from "@mui/icons-material/Email";
 import FolderOpenIcon from "@mui/icons-material/FolderOpen";
-import { EducationCardProps, SkillProps, SkillsProps } from "./type";
+import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import { EducationCardProps, SkillsProps } from "./type";
 export const config = {
   navItems: [
     { openInBlank: false, title: "About", link: "about", icon: PersonIcon },
@@ -122,4 +125,30 @@ export const config = {
   } as SkillsProps,
   languages: ["TypeScript", "HTML/CSS", "Dart"],
   databases: ["NoSQL", "MongoDB"],
+  contactInfo: [
+    {
+      link: "",
+      tooltip: "Call Anurag",
+      content: "+918874940467",
+      icon: LocalPhoneIcon,
+    },
+    {
+      link: "mailto:apk.anurag.singh@gmail.com",
+      tooltip: "Email Anurag",
+      content: "apk.anurag.singh@gmail.com",
+      icon: EmailIcon,
+    },
+    {
+      link: "http://github.com/singh202",
+      tooltip: "View Anurag on GitHub",
+      content: "github.com/singh202",
+      icon: GitHubIcon,
+    },
+    {
+      link: "https://www.linkedin.com/in/anurag-singh-9b1723204/",
+      tooltip: "View Anurag on Linkedin",
+      content: "linkedin.com/in/anurag-singh",
+      icon: LinkedInIcon,
+    },
+  ],
 };
