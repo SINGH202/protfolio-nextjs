@@ -54,7 +54,6 @@ export const NavItem = ({
     <li
       className="flex teal-text font-light hover:font-normal"
       onClick={() => {
-        console.log(title);
         setActiveTab(title);
       }}
       onMouseEnter={() => setIsHovered(true)}
@@ -78,7 +77,6 @@ export const NavItem = ({
           spy={false}
           smooth={true}
           onClick={() => {
-            console.log(title);
             setActiveTab(title);
           }}
           offset={0}

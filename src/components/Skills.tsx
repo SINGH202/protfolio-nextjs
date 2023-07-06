@@ -10,6 +10,10 @@ export const Skills = () => {
       <SectionHeader title="Skills" />
       <div className="flex flex-wrap justify-center lg:justify-start gap-5 py-5 md:py-[30px] px-5 md:px-[40px] mb-14">
         <SkillSection {...config?.languagesAndDatabases} />
+        <SkillSection {...config?.libraries} />
+        <SkillSection {...config?.frameWorks} />
+        <SkillSection {...config?.toolsAndTechnologies} />
+        <SkillSection {...config?.communication} />
       </div>
     </div>
   );
@@ -23,14 +27,14 @@ export const SkillSection = ({ title, skills }: SkillsProps) => {
       <div className="flex flex-wrap gap-2 items-center">
         {skills.map((skill, index) => (
           <div
-            className="flex flex-col gap-2 items-center justify-center w-24 pt-2"
+            className="flex flex-col gap-2 items-center justify-center min-w-[96px] pt-2"
             key={`${title}-skills-${index}`}>
             <UnOptimizedImage
               src={skill?.icon}
               alt="logo"
               width="60"
               height="60"
-              className={`aspect-[1/1]`}
+              className={`aspect-[1/1] object-contain`}
             />
             <p className="text-xl font-light">{skill?.label}</p>
           </div>
