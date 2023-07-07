@@ -7,7 +7,7 @@ export const Contact = () => {
   return (
     <div id="contact" className="h-screen w-full">
       <SectionHeader title="Contact" />
-      <div className="flex flex-col justify-center lg:justify-start gap-5 p-5 md:p-[40px] mb-14">
+      <div className="flex flex-col justify-center lg:justify-start gap-10 p-5 md:p-[40px] my-8">
         {config?.contactInfo.map((contact, index) => (
           <ContactOption
             key={`contact-info-${index}`}
@@ -49,7 +49,7 @@ export const ContactOption = ({
                 {tooltip}
               </p>
             </div>
-            <p className="hoverline">{content}</p>
+            <p className="hoverline text-[#607d8b] text-xl">{content}</p>
           </div>
         </a>
       ) : (
@@ -61,7 +61,7 @@ export const ContactOption = ({
                 {tooltip}
               </p>
             </div>
-            <p className="hoverline"> {content}</p>
+            <p className="hoverline text-[#607d8b] text-xl"> {content}</p>
           </div>
         </a>
       )}
