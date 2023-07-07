@@ -1,3 +1,5 @@
+import { ReactElement } from "react";
+
 export type EducationCardProps = {
   title: string;
   link: string;
@@ -15,4 +17,10 @@ export type SkillsProps = {
 export type SkillProps = {
   label: string;
   icon: string;
+};
+
+export type LinkIconProps = {
+  link: string;
+  icon: ReactElement;
+  tooltip: string;
 };

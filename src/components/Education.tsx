@@ -42,7 +42,7 @@ export const EducationCard = ({
       <b>Relevant Coursework:</b>
       <ul>
         {courseWorks.map((courseWork, index) => (
-          <li key={`course-work-${index}`} className="list-disc	mx-5 ">
+          <li key={`course-work-${index}`} className="list-disc	mx-5">
             {courseWork}
           </li>
         ))}
