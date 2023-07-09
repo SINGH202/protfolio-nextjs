@@ -3,23 +3,33 @@ import { SectionHeader } from "./SectionHeader";
 import { UnOptimizedImage } from "./UnoptimizedImage";
 import CloseIcon from "@mui/icons-material/Close";
 import { useState } from "react";
-import { LinkIconProps } from "../../type";
+import { LinkIconProps, ProjectProps } from "../../type";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import { config } from "../../data";
 
 export const Projects = () => {
   return (
     <div id="projects" className="min-h-screen w-full">
       <SectionHeader title="Projects" />
       <div className="flex flex-wrap justify-center lg:justify-start gap-5 py-5 md:py-[30px] px-5 md:px-[40px] mb-14">
-        <ProjectCard />
-        <ProjectCard />
+        {config?.projects.map((project, index) => (
+          <ProjectCard key={`project-${index}`} {...project} />
+        ))}
       </div>
     </div>
   );
 };
 
-export const ProjectCard = () => {
+export const ProjectCard = ({
+  name,
+  subTitle,
+  image,
+  features,
+  tools,
+  gitLink,
+  redirectLink,
+}: ProjectProps) => {
   const [isExpandedView, setIsExpandedView] = useState(false);
   return (
     <div className="flex flex-col w-full min-w-[280px] xs:max-w-[400px] h-96 shadow-lg card-shadow relative rounded-md overflow-hidden">
@@ -33,33 +43,36 @@ export const ProjectCard = () => {
           />
           <ul className="h-3/4 text-lg overflow-y-scroll p-5">
             <li className="list-disc	mx-5">
-              <b>Tools:</b> HTML, CSS, JS, REACT, REDUX, JSON, CSS-LIBRARIES.
+              <b>Tools:</b>{" "}
+              {tools.map((tool, index) => (
+                <span key={`${name}-tools-${index}`}>
+                  {tool}
+                  {tools.length - 1 > index ? ", " : "."}
+                </span>
+              ))}
             </li>
-            <li className="list-disc	mx-5">Register/login to the web app.</li>
-            <li className="list-disc	mx-5">
-              Browse through various posts of friends on the platform.
-            </li>
-            <li className="list-disc	mx-5">
-              Add & remove friends on the platform.
-            </li>
-            <li className="list-disc mx-5">Chat with friends</li>
+            {features.map((feature, index) => (
+              <li key={`${name}-feature-${index}`} className="list-disc	mx-5">
+                {feature}
+              </li>
+            ))}
           </ul>
 
           <div className="border-b"></div>
           <div className="flex items-center gap-8 p-5 h-1/4">
             <LinkIcon
-              link={""}
+              link={redirectLink}
               icon={
                 <OpenInNewIcon className="shadow-lg bg-[#607d8b] text-[#ffffff] rounded-full w-14 h-14 p-2" />
               }
-              tooltip={""}
+              tooltip={"View in new-tab"}
             />
             <LinkIcon
-              link={""}
+              link={gitLink}
               icon={
                 <GitHubIcon className="shadow-lg bg-[#607d8b] text-[#ffffff] rounded-full w-14 h-14 p-2" />
               }
-              tooltip={""}
+              tooltip={"View on github"}
             />
           </div>
         </div>
@@ -67,7 +80,7 @@ export const ProjectCard = () => {
         <>
           <div className="h-60">
             <UnOptimizedImage
-              src="/assets/img/facebok-1.png"
+              src={image}
               alt="logo"
               width="0"
               height="0"
@@ -77,7 +90,7 @@ export const ProjectCard = () => {
           <div className="flex flex-col gap-2 p-4 h-36">
             <div className="flex justify-between items-center">
               <span className="text-2xl font-light hover:font-normal teal-text">
-                Clone of Facebook
+                {name}
               </span>
               <MoreVertIcon
                 className="teal-text text-2xl cursor-pointer"
@@ -86,9 +99,7 @@ export const ProjectCard = () => {
                 }}
               />
             </div>
-            <span className="text-lg">
-              A social media website based on HTML, CSS, JS, REACT.
-            </span>
+            <span className="text-lg">{subTitle}</span>
           </div>
         </>
       )}
@@ -102,9 +113,9 @@ export const LinkIcon = ({ link, icon, tooltip }: LinkIconProps) => {
       <div className="flex items-center gap-10">
         <div className="group">
           {icon}
-          <p className="hidden group-hover:flex absolute bottom-14 z-20 left-0 right-0 bg-black text-white rounded-sm opacity-80 p-2 w-fit max-w-xs ">
+          <span className="hidden group-hover:flex absolute bottom-14 z-20 left-0 right-0 bg-black text-white rounded-sm opacity-80 p-2 ">
             {tooltip}
-          </p>
+          </span>
         </div>
       </div>
     </a>

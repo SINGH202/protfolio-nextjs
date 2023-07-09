@@ -24,3 +24,13 @@ export type LinkIconProps = {
   icon: ReactElement;
   tooltip: string;
 };
+
+export type ProjectProps = {
+  name: string;
+  subTitle: string;
+  image: string;
+  features: string[];
+  tools: string[];
+  gitLink: string;
+  redirectLink: string;
+};

@@ -7,7 +7,7 @@ import FolderOpenIcon from "@mui/icons-material/FolderOpen";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import { EducationCardProps, SkillsProps } from "./type";
+import { EducationCardProps, ProjectProps, SkillsProps } from "./type";
 export const config = {
   navItems: [
     { openInBlank: false, title: "About", link: "about", icon: PersonIcon },
@@ -151,4 +151,20 @@ export const config = {
       icon: LinkedInIcon,
     },
   ],
+  projects: [
+    {
+      name: "Clone of Facebook",
+      subTitle: "A social media website based on HTML, CSS, JS, REACT.",
+      gitLink: "",
+      image: "/assets/img/facebok-1.png",
+      redirectLink: "",
+      features: [
+        "Register/login to the web app.",
+        "Browse through various posts of friends on the platform.",
+        "Add & remove friends on the platform.",
+        "Chat with friends",
+      ],
+      tools: ["HTML", "CSS", "JS", "REACT", "REDUX", "JSON", "CSS-LIBRARIES"],
+    },
+  ] as ProjectProps[],
 };
