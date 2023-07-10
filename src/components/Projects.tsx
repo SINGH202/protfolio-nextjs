@@ -109,7 +109,7 @@ export const ProjectCard = ({
 
 export const LinkIcon = ({ link, icon, tooltip }: LinkIconProps) => {
   return (
-    <a href={link} className="relative">
+    <a href={link} target="_blank" className="relative" rel="noreferrer">
       <div className="flex items-center gap-10">
         <div className="group">
           {icon}

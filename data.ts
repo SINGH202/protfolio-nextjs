@@ -155,9 +155,10 @@ export const config = {
     {
       name: "Clone of Facebook",
       subTitle: "A social media website based on HTML, CSS, JS, REACT.",
-      gitLink: "",
+      gitLink:
+        "https://github.com/iamkharwal/Facebook_Clone_FW13_T02/blob/main/README.md",
       image: "/assets/img/facebok-1.png",
-      redirectLink: "",
+      redirectLink: "https://facebook-masai-clone.netlify.app/",
       features: [
         "Register/login to the web app.",
         "Browse through various posts of friends on the platform.",
