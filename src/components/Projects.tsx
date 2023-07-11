@@ -7,6 +7,7 @@ import { LinkIconProps, ProjectProps } from "../../type";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import { config } from "../../data";
+import { Tooltip } from "@mui/material";
 
 export const Projects = () => {
   return (
@@ -70,6 +71,7 @@ export const ProjectCard = ({
               }
               tooltip={"View in new-tab"}
             />
+
             <LinkIcon
               link={gitLink}
               icon={
@@ -115,15 +117,12 @@ export const ProjectCard = ({
 
 export const LinkIcon = ({ link, icon, tooltip }: LinkIconProps) => {
   return (
-    <a href={link} target="_blank" className="relative" rel="noreferrer">
-      <div className="flex items-center gap-10">
-        <div className="group">
-          {icon}
-          <span className="hidden group-hover:flex absolute bottom-14 z-20 left-0 right-0 bg-black text-white rounded-sm opacity-80 p-2 ">
-            {tooltip}
-          </span>
+    <Tooltip title={tooltip} placement="top">
+      <a href={link} target="_blank" className="relative" rel="noreferrer">
+        <div className="flex items-center gap-10">
+          <div className="group">{icon}</div>
         </div>
-      </div>
-    </a>
+      </a>
+    </Tooltip>
   );
 };

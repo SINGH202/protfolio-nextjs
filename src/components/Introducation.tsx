@@ -45,7 +45,7 @@ export const Intro = () => {
           smooth={true}
           offset={windowWidth < 1100 ? -46 : 0}
           duration={200}
-          className="border cursor-pointer px-2 py1 rounded-md bg-white text-[#008073] hover:bg-transparent hover:text-white">
+          className="border cursor-pointer px-4 sm:px-10 py-3 rounded-md bg-white text-[#008073] hover:bg-transparent hover:text-white">
           Read More
         </SmoothNavigator>
         <SmoothNavigator
@@ -55,7 +55,7 @@ export const Intro = () => {
           smooth={true}
           offset={windowWidth < 1100 ? -46 : 0}
           duration={200}
-          className="border cursor-pointer px-2 py1 rounded-md hover:bg-white hover:text-[#008073]">
+          className="border cursor-pointer px-4 sm:px-10 py-3 rounded-md hover:bg-white hover:text-[#008073]">
           Contact Me
         </SmoothNavigator>
       </div>

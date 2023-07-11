@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import { config } from "../../data";
 import { SectionHeader } from "./SectionHeader";
 import { ReactElement } from "react";
+import { Tooltip } from "@mui/material";
 
 export const Contact = () => {
   return (
@@ -46,24 +47,18 @@ export const ContactOption = ({
       {link ? (
         <a href={link} className="">
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-10">
-            <div className="group">
-              {icon}
-              <p className="hidden group-hover:flex absolute bottom-14 z-20 left-0 right-0 bg-black text-white rounded-sm opacity-80 p-2 w-fit max-w-xs ">
-                {tooltip}
-              </p>
-            </div>
+            <Tooltip title={tooltip} placement="top">
+              <div className="group">{icon}</div>
+            </Tooltip>
             <p className="hoverline text-[#607d8b] text-xl">{content}</p>
           </div>
         </a>
       ) : (
         <a className="">
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-10">
-            <div className="group">
-              {icon}
-              <p className="hidden group-hover:flex absolute bottom-14 bg-black text-white rounded-sm opacity-80 p-2 ">
-                {tooltip}
-              </p>
-            </div>
+            <Tooltip title={tooltip} placement="top">
+              <div className="group">{icon}</div>
+            </Tooltip>
             <p className="hoverline text-[#607d8b] text-xl"> {content}</p>
           </div>
         </a>
