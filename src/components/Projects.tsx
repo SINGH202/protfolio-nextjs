@@ -32,7 +32,7 @@ export const ProjectCard = ({
 }: ProjectProps) => {
   const [isExpandedView, setIsExpandedView] = useState(false);
   return (
-    <div className="flex flex-col w-full min-w-[280px] xs:max-w-[400px] h-96 shadow-lg card-shadow relative rounded-md overflow-hidden">
+    <div className="flex flex-col w-full min-w-[270px] xs:max-w-[400px] h-96 shadow-lg card-shadow relative rounded-md overflow-hidden">
       {isExpandedView ? (
         <div className="h-full">
           <CloseIcon

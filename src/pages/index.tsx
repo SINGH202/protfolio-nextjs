@@ -10,8 +10,7 @@ export default function Home() {
   return (
     <div className="">
       <Navbar />
-      <div className="flex flex-col md:ml-48">
-        {/* <div className="h-screen"></div> */}
+      <div className="flex flex-col mt-14 lg:mt-0 lg:ml-48">
         <Intro />
         <About />
         <Projects />

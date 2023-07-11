@@ -24,7 +24,7 @@ export const EducationCard = ({
   courseWorks,
 }: EducationCardProps) => {
   return (
-    <div className="flex flex-col gap-1 w-full min-w-[280px] xs:max-w-[400px] h-72 card-shadow px-5 py-6">
+    <div className="flex flex-col gap-1 w-full min-w-[250px] xs:max-w-[400px] min-h-80 card-shadow px-5 py-6">
       <p>
         <a
           href={link}
