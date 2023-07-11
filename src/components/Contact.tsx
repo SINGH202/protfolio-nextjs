@@ -14,7 +14,10 @@ export const Contact = () => {
             link={contact?.link}
             content={contact?.content}
             icon={
-              <contact.icon className="bg-[#607d8b] text-[#ffffff] rounded-full w-12 h-12 p-2" />
+              <contact.icon
+                className="bg-[#607d8b] text-[#ffffff] rounded-full w-12 h-12 p-2"
+                fontSize="large"
+              />
             }
             tooltip={contact?.tooltip}
           />

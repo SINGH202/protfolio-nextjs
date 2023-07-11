@@ -63,14 +63,20 @@ export const ProjectCard = ({
             <LinkIcon
               link={redirectLink}
               icon={
-                <OpenInNewIcon className="shadow-lg bg-[#607d8b] text-[#ffffff] rounded-full w-14 h-14 p-2" />
+                <OpenInNewIcon
+                  fontSize="large"
+                  className="shadow-lg bg-[#607d8b] text-[#ffffff] rounded-full w-14 h-14 p-2"
+                />
               }
               tooltip={"View in new-tab"}
             />
             <LinkIcon
               link={gitLink}
               icon={
-                <GitHubIcon className="shadow-lg bg-[#607d8b] text-[#ffffff] rounded-full w-14 h-14 p-2" />
+                <GitHubIcon
+                  fontSize="large"
+                  className="shadow-lg bg-[#607d8b] text-[#ffffff] rounded-full w-14 h-14 p-2"
+                />
               }
               tooltip={"View on github"}
             />
