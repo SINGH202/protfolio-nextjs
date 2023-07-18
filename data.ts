@@ -167,5 +167,18 @@ export const config = {
       ],
       tools: ["HTML", "CSS", "JS", "REACT", "REDUX", "JSON", "CSS-LIBRARIES"],
     },
+    {
+      name: "Todo application",
+      subTitle: "A task manager based on NextJs, TailwindCSS, CSS",
+      gitLink: "https://github.com/SINGH202/React-todo-app-with-live-api",
+      image: "/assets/img/todo-app-2.png",
+      redirectLink: "https://react-todo-singh202.netlify.app/",
+      features: [
+        "Create Task",
+        "Browse through Tasks created.",
+        "Add, update & remove tasks.",
+      ],
+      tools: ["NextJs", "CSS", "TailwindCSS", "JSON", "CSS-LIBRARIES"],
+    },
   ] as ProjectProps[],
 };
