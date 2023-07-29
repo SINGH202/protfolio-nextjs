@@ -163,3 +163,8 @@ body {
   width: 100%;
   height: auto;
 }
+
+.card-animation {
+  transition : 0.7s ease-out;
+  transition-delay: 0.2s;
+}
