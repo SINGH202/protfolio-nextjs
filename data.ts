@@ -33,7 +33,7 @@ export const config = {
     {
       openInBlank: true,
       title: "Resume",
-      link: "/assets/resume/Anurag_Singh_Resume.pdf",
+      link: "/assets/resume/Anurag-Singh-Resume.pdf",
       icon: FolderOpenIcon,
     },
   ],
