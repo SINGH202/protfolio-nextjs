@@ -168,6 +168,20 @@ export const config = {
     //   tools: ["HTML", "CSS", "JS", "REACT", "REDUX", "JSON", "CSS-LIBRARIES"],
     // },
     {
+      name: "News application",
+      subTitle: "A news mobile app based on Dart, Flutter and NewsAPI.",
+      gitLink:
+        "https://github.com/SINGH202/flutter-news-app",
+      image: "/assets/img/new-app.png",
+      redirectLink: "",
+      features: [
+        "Shows Breaking news on landing screen.",
+        "Browse through various categories of news from discover screen.",
+        "Search any kind of news from Search Screen.",
+      ],
+      tools: ["Flutter", "Dart", "NewsAPI", "Xcode", "Android Studio"],
+    },
+    {
       name: "Todo application",
       subTitle: "A task manager based on NextJs, TailwindCSS, CSS",
       gitLink: "https://github.com/SINGH202/React-todo-app-with-live-api",

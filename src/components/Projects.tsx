@@ -33,9 +33,9 @@ export const ProjectCard = ({
 }: ProjectProps) => {
   const [isExpandedView, setIsExpandedView] = useState(false);
   return (
-    <div className="flex flex-col w-full min-w-[270px] xs:max-w-[400px] h-96 shadow-lg card-shadow relative card-animation rounded-md overflow-hidden">
+    <div className="flex flex-col w-full min-w-[270px] xs:max-w-[400px] h-96 shadow-lg card-shadow relative rounded-md overflow-hidden">
       {isExpandedView ? (
-        <div className="h-full card-animation">
+        <div className="card-animation h-full">
           <CloseIcon
             onClick={() => {
               setIsExpandedView(false);
@@ -61,27 +61,31 @@ export const ProjectCard = ({
 
           <div className="border-b"></div>
           <div className="flex items-center gap-8 p-5 h-1/4">
-            <LinkIcon
-              link={redirectLink}
-              icon={
-                <OpenInNewIcon
-                  fontSize="large"
-                  className="shadow-lg bg-[#607d8b] text-[#ffffff] rounded-full w-14 h-14 p-2"
-                />
-              }
-              tooltip={"View in new-tab"}
-            />
+            {redirectLink && (
+              <LinkIcon
+                link={redirectLink}
+                icon={
+                  <OpenInNewIcon
+                    fontSize="large"
+                    className="shadow-lg bg-[#607d8b] text-[#ffffff] rounded-full w-14 h-14 p-2"
+                  />
+                }
+                tooltip={"View in new-tab"}
+              />
+            )}
 
-            <LinkIcon
-              link={gitLink}
-              icon={
-                <GitHubIcon
-                  fontSize="large"
-                  className="shadow-lg bg-[#607d8b] text-[#ffffff] rounded-full w-14 h-14 p-2"
-                />
-              }
-              tooltip={"View on github"}
-            />
+            {gitLink && (
+              <LinkIcon
+                link={gitLink}
+                icon={
+                  <GitHubIcon
+                    fontSize="large"
+                    className="shadow-lg bg-[#607d8b] text-[#ffffff] rounded-full w-14 h-14 p-2"
+                  />
+                }
+                tooltip={"View on github"}
+              />
+            )}
           </div>
         </div>
       ) : (
