@@ -5,18 +5,14 @@ export type EducationCardProps = {
   link: string;
   address: string;
   courseName: string;
+  period: string;
   percentage?: number;
   courseWorks: string[];
 };
 
-export type SkillsProps = {
+export type SkillCategoryProps = {
   title: string;
-  skills: SkillProps[];
-};
-
-export type SkillProps = {
-  label: string;
-  icon: string;
+  skills: string[];
 };
 
 export type LinkIconProps = {
@@ -28,9 +24,30 @@ export type LinkIconProps = {
 export type ProjectProps = {
   name: string;
   subTitle: string;
-  image: string;
+  year: string;
   features: string[];
   tools: string[];
-  gitLink: string;
-  redirectLink: string;
+  gitLink?: string;
+  redirectLink?: string;
+  accent: string;
+};
+
+export type ExperienceProps = {
+  company: string;
+  role: string;
+  period: string;
+  highlights: string[];
+  tags: string[];
+};
+
+export type AwardProps = {
+  title: string;
+  issuer: string;
+  period: string;
+};
+
+export type NavItemConfig = {
+  openInBlank: boolean;
+  title: string;
+  link: string;
 };

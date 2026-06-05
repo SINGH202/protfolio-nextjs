@@ -1,132 +1,101 @@
-import MoreVertIcon from "@mui/icons-material/MoreVert";
+import { ReactNode } from "react";
 import { SectionHeader } from "./SectionHeader";
-import { UnOptimizedImage } from "./UnoptimizedImage";
-import CloseIcon from "@mui/icons-material/Close";
-import { useState } from "react";
-import { LinkIconProps, ProjectProps } from "../../type";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import { config } from "../../data";
-import { Tooltip } from "@mui/material";
+import { ProjectProps } from "../../type";
 
 export const Projects = () => {
   return (
-    <div id="projects" className="min-h-screen w-full">
-      <SectionHeader title="Projects" />
-      <div className="flex flex-wrap justify-center lg:justify-start gap-5 py-5 md:py-[30px] px-5 md:px-[40px] mb-14">
-        {config?.projects.map((project, index) => (
+    <section id="projects" className="section-container">
+      <SectionHeader title="Featured Projects" subtitle="03" />
+      <div className="grid md:grid-cols-2 gap-6">
+        {config.projects.map((project, index) => (
           <ProjectCard key={`project-${index}`} {...project} />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
-export const ProjectCard = ({
+const ProjectCard = ({
   name,
   subTitle,
-  image,
+  year,
   features,
   tools,
   gitLink,
   redirectLink,
+  accent,
 }: ProjectProps) => {
-  const [isExpandedView, setIsExpandedView] = useState(false);
   return (
-    <div className="flex flex-col w-full min-w-[270px] xs:max-w-[400px] h-96 shadow-lg card-shadow relative rounded-md overflow-hidden">
-      {isExpandedView ? (
-        <div className="card-animation h-full">
-          <CloseIcon
-            onClick={() => {
-              setIsExpandedView(false);
-            }}
-            className="absolute right-4 top-4 cursor-pointer"
-          />
-          <ul className="h-3/4 text-lg overflow-y-scroll p-5">
-            <li className="list-disc	mx-5">
-              <b>Tools:</b>{" "}
-              {tools.map((tool, index) => (
-                <span key={`${name}-tools-${index}`}>
-                  {tool}
-                  {tools.length - 1 > index ? ", " : "."}
-                </span>
-              ))}
-            </li>
-            {features.map((feature, index) => (
-              <li key={`${name}-feature-${index}`} className="list-disc	mx-5">
-                {feature}
-              </li>
-            ))}
-          </ul>
-
-          <div className="border-b"></div>
-          <div className="flex items-center gap-8 p-5 h-1/4">
-            {redirectLink && (
-              <LinkIcon
-                link={redirectLink}
-                icon={
-                  <OpenInNewIcon
-                    fontSize="large"
-                    className="shadow-lg bg-[#607d8b] text-[#ffffff] rounded-full w-14 h-14 p-2"
-                  />
-                }
-                tooltip={"View in new-tab"}
-              />
-            )}
-
-            {gitLink && (
-              <LinkIcon
-                link={gitLink}
-                icon={
-                  <GitHubIcon
-                    fontSize="large"
-                    className="shadow-lg bg-[#607d8b] text-[#ffffff] rounded-full w-14 h-14 p-2"
-                  />
-                }
-                tooltip={"View on github"}
-              />
-            )}
-          </div>
+    <article
+      className={`glass-card p-6 md:p-8 flex flex-col h-full hover:border-accent/30 transition-all duration-300 group bg-gradient-to-br ${accent}`}>
+      <div className="flex items-start justify-between gap-4 mb-4">
+        <div>
+          <h3 className="text-xl font-semibold text-white group-hover:text-accent-glow transition-colors">
+            {name}
+          </h3>
+          <p className="text-sm text-gray-500 mt-1">{subTitle}</p>
         </div>
-      ) : (
-        <>
-          <div className="h-60">
-            <UnOptimizedImage
-              src={image}
-              alt="logo"
-              width="0"
-              height="0"
-              className={`w-full h-full`}
-            />
-          </div>
-          <div className="flex flex-col gap-2 p-4 h-36">
-            <div className="flex justify-between items-center">
-              <span className="text-2xl font-light hover:font-normal teal-text">
-                {name}
-              </span>
-              <MoreVertIcon
-                className="teal-text text-2xl cursor-pointer"
-                onClick={() => {
-                  setIsExpandedView(true);
-                }}
-              />
-            </div>
-            <span className="text-lg">{subTitle}</span>
-          </div>
-        </>
+        <span className="font-mono text-xs text-gray-500 bg-surface-raised px-2.5 py-1 rounded-md border border-surface-border shrink-0">
+          {year}
+        </span>
+      </div>
+
+      <ul className="flex flex-col gap-2 mb-6 flex-1">
+        {features.map((feature, index) => (
+          <li
+            key={`${name}-feature-${index}`}
+            className="flex gap-2 text-sm text-gray-400 leading-relaxed">
+            <span className="text-accent shrink-0">—</span>
+            {feature}
+          </li>
+        ))}
+      </ul>
+
+      <div className="flex flex-wrap gap-2 mb-5">
+        {tools.map((tool) => (
+          <span key={`${name}-${tool}`} className="skill-pill text-xs py-1">
+            {tool}
+          </span>
+        ))}
+      </div>
+
+      {(gitLink || redirectLink) && (
+        <div className="flex gap-4 pt-4 border-t border-surface-border">
+          {redirectLink && (
+            <ProjectLink href={redirectLink} label="Live demo">
+              <OpenInNewIcon className="!text-lg" />
+            </ProjectLink>
+          )}
+          {gitLink && (
+            <ProjectLink href={gitLink} label="Source code">
+              <GitHubIcon className="!text-lg" />
+            </ProjectLink>
+          )}
+        </div>
       )}
-    </div>
+    </article>
   );
 };
 
-export const LinkIcon = ({ link, icon, tooltip }: LinkIconProps) => {
-  return (
-    <Tooltip title={tooltip} placement="top">
-      <a href={link} target="_blank" className="relative" rel="noreferrer">
-        <div className="flex items-center gap-10">
-          <div className="group">{icon}</div>
-        </div>
-      </a>
-    </Tooltip>
-  );
-};
+const ProjectLink = ({
+  href,
+  label,
+  children,
+}: {
+  href: string;
+  label: string;
+  children: ReactNode;
+}) => (
+  <a
+    href={href}
+    target="_blank"
+    rel="noreferrer"
+    aria-label={label}
+    className="flex items-center gap-2 text-sm text-gray-400 hover:text-accent-glow transition-colors">
+    {children}
+    <span>{label}</span>
+  </a>
+);

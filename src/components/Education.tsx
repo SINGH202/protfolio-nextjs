@@ -1,52 +1,65 @@
 import { config } from "../../data";
 import { EducationCardProps } from "../../type";
 import { SectionHeader } from "./SectionHeader";
+import { Awards } from "./Awards";
 
 export const Education = () => {
   return (
-    <div id="education" className="min-h-screen w-full">
-      <SectionHeader title="Education" />
-      <div className="flex flex-wrap justify-center lg:justify-start gap-5 py-5 md:py-[30px] px-5 md:px-[40px] mb-14">
-        {config?.educationInfo.map((info, index) => (
+    <section id="education" className="section-container">
+      <SectionHeader title="Education & Awards" subtitle="05" />
+      <div className="grid md:grid-cols-2 gap-6 mb-12">
+        {config.educationInfo.map((info, index) => (
           <EducationCard key={`education-info-${index}`} {...info} />
         ))}
       </div>
-    </div>
+      <Awards />
+    </section>
   );
 };
 
-export const EducationCard = ({
+const EducationCard = ({
   title,
   link,
   address,
   courseName,
+  period,
   percentage,
   courseWorks,
 }: EducationCardProps) => {
   return (
-    <div className="flex flex-col gap-1 w-full min-w-[250px] xs:max-w-[400px] min-h-80 card-shadow px-5 py-6">
-      <p>
+    <article className="glass-card p-6 md:p-8 hover:border-accent/20 transition-colors h-full">
+      <div className="flex items-start justify-between gap-3 mb-4">
         <a
           href={link}
           target="_blank"
           rel="noopener noreferrer"
-          className="cursor-pointer text-2xl font-light hover:font-normal hoverline teal-text uppercase">
+          className="text-xl font-semibold text-white hover:text-accent-glow transition-colors">
           {title}
         </a>
-      </p>
-      <p>{address}</p>
-      <p>
-        <b>Course: </b>
-        {courseName}
-      </p>
-      <b>Relevant Coursework:</b>
-      <ul>
+        <span className="font-mono text-xs text-gray-500 bg-surface-raised px-2.5 py-1 rounded-md border border-surface-border shrink-0">
+          {period}
+        </span>
+      </div>
+
+      <p className="text-gray-500 text-sm mb-1">{address}</p>
+      <p className="text-accent font-medium mb-4">{courseName}</p>
+      {percentage && (
+        <p className="text-sm text-gray-400 mb-4">
+          Score: <span className="text-white font-medium">{percentage}%</span>
+        </p>
+      )}
+
+      <p className="text-sm text-gray-500 mb-2">Coursework</p>
+      <ul className="flex flex-col gap-1.5">
         {courseWorks.map((courseWork, index) => (
-          <li key={`course-work-${index}`} className="list-disc	mx-5">
+          <li
+            key={`course-work-${index}`}
+            className="flex gap-2 text-sm text-gray-400">
+            <span className="text-accent">▹</span>
             {courseWork}
           </li>
         ))}
       </ul>
-    </div>
+    </article>
   );
 };

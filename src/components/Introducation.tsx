@@ -1,79 +1,139 @@
+import { ReactNode } from "react";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import EmailIcon from "@mui/icons-material/Email";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import { Link as SmoothNavigator } from "react-scroll";
-import Typed from "react-typed";
+import { ReactTyped } from "react-typed";
+import { config } from "../../data";
+import { UnOptimizedImage } from "./UnoptimizedImage";
 import { useWindowSize } from "../../WindowSize";
 
 export const Intro = () => {
   const windowWidth = useWindowSize().width;
+  const scrollOffset = windowWidth < 1100 ? -72 : -80;
+
   return (
-    <div
+    <section
       id="intro"
-      className="flex flex-col gap-5 font-light bg-[#64998D] text-white relative text-lg sm:text-xl md:text-2xl min-h-screen px-5 sm:px-16 lg:px-36 py-16">
-      <span className="text-2xl sm:text-5xl flex flex-wrap gap-2 items-center">
-        Hi, I&apos;m{" "}
-        <p className="bg-[#008073] w-fit px-1 sm:p-2">Anurag Singh</p>
-      </span>
+      className="relative min-h-screen flex items-center hero-glow overflow-hidden">
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#30363d_1px,transparent_1px),linear-gradient(to_bottom,#30363d_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)] opacity-30" />
 
-      <div className="flex flex-col text-xl sm:text-2xl">
-        <TypingComponent />
-        <span>
-          Self-driven, quick starter, passionate programmer with a curious mind
-          who enjoys solving a complex and challenging real-world problems.
-        </span>
+      <div className="section-container relative z-10 w-full pt-24 md:pt-28">
+        <div className="grid lg:grid-cols-[1fr_auto] gap-12 lg:gap-16 items-center">
+          <div className="flex flex-col gap-6 animate-slide-up">
+            <div className="inline-flex items-center gap-2 w-fit px-4 py-2 rounded-full border border-surface-border bg-surface-raised/50 text-sm text-gray-400">
+              <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+              Available for opportunities
+            </div>
+
+            <div>
+              <p className="text-gray-400 text-lg mb-2">Hi, I&apos;m</p>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight">
+                {config.name}
+              </h1>
+            </div>
+
+            <div className="text-xl sm:text-2xl md:text-3xl text-gray-300 font-light">
+              <ReactTyped
+                strings={config.typingStrings}
+                typeSpeed={50}
+                backSpeed={30}
+                loop
+                className="gradient-text font-semibold"
+              />
+            </div>
+
+            <p className="text-gray-400 text-base sm:text-lg max-w-2xl leading-relaxed font-mono">
+              {config.tagline}
+            </p>
+
+            <div className="flex flex-wrap gap-3 text-sm text-gray-500">
+              <span className="flex items-center gap-1.5">
+                <LocationOnIcon className="text-accent !text-base" />
+                {config.location}
+              </span>
+              <span className="hidden sm:inline text-surface-border">|</span>
+              <span className="flex items-center gap-1.5">
+                <EmailIcon className="text-accent !text-base" />
+                {config.email}
+              </span>
+            </div>
+
+            <div className="flex flex-wrap gap-4 pt-2">
+              <SmoothNavigator
+                to="experience"
+                spy={false}
+                smooth
+                offset={scrollOffset}
+                duration={300}
+                className="btn-primary cursor-pointer">
+                View Experience
+              </SmoothNavigator>
+              <SmoothNavigator
+                to="contact"
+                spy={false}
+                smooth
+                offset={scrollOffset}
+                duration={300}
+                className="btn-secondary cursor-pointer">
+                Get in Touch
+              </SmoothNavigator>
+            </div>
+
+            <div className="flex items-center gap-4 pt-4">
+              <SocialLink href={config.linkedin} label="LinkedIn">
+                <LinkedInIcon />
+              </SocialLink>
+              <SocialLink href={config.github} label="GitHub">
+                <GitHubIcon />
+              </SocialLink>
+            </div>
+          </div>
+
+          <div className="hidden lg:flex flex-col items-center gap-6 animate-float">
+            <div className="relative">
+              <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-accent/30 to-cyan-500/20 blur-2xl" />
+              <UnOptimizedImage
+                src="/assets/img/passport-new.jpg"
+                alt="Anurag Singh"
+                width={280}
+                height={280}
+                className="relative w-64 h-64 xl:w-72 xl:h-72 rounded-2xl object-cover border-2 border-surface-border shadow-2xl"
+              />
+            </div>
+            <div className="glass-card px-6 py-4 text-center">
+              <p className="text-3xl font-bold gradient-text">{config.yearsOfExperience}</p>
+              <p className="text-sm text-gray-400 mt-1">Years of Experience</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 text-gray-500 animate-bounce">
+          <span className="text-xs uppercase tracking-widest">Scroll</span>
+          <ArrowDownwardIcon className="!text-sm" />
+        </div>
       </div>
-      <div className="flex gap-5">
-        <a
-          href="https://www.linkedin.com/in/anurag-singh-9b1723204/"
-          target="_blank"
-          rel="noreferrer">
-          <button className="icon-btn linkedin">
-            <LinkedInIcon className="text-3xl" />
-          </button>
-        </a>
-        <a href="https://github.com/singh202/" target="_blank" rel="noreferrer">
-          <button className="icon-btn github">
-            <GitHubIcon className="text-3xl" />
-          </button>
-        </a>
-      </div>
-      <div className="flex gap-4 text-base">
-        <SmoothNavigator
-          activeClass="active"
-          to={"about"}
-          spy={false}
-          smooth={true}
-          offset={windowWidth < 1100 ? -46 : 0}
-          duration={200}
-          className="border cursor-pointer px-4 sm:px-10 py-3 rounded-md bg-white text-[#008073] hover:bg-transparent hover:text-white">
-          Read More
-        </SmoothNavigator>
-        <SmoothNavigator
-          activeClass="active"
-          to={"contact"}
-          spy={false}
-          smooth={true}
-          offset={windowWidth < 1100 ? -46 : 0}
-          duration={200}
-          className="border cursor-pointer px-4 sm:px-10 py-3 rounded-md hover:bg-white hover:text-[#008073]">
-          Contact Me
-        </SmoothNavigator>
-      </div>
-    </div>
+    </section>
   );
 };
 
-export const TypingComponent = () => {
-  return (
-    <div>
-      A{" "}
-      <Typed
-        className="text-[#263e3a]"
-        strings={["Full-stack web developer", "Fast Learner", "Problem solver"]}
-        loop
-        typeSpeed={80}
-        backSpeed={40}
-      />
-    </div>
-  );
-};
+const SocialLink = ({
+  href,
+  label,
+  children,
+}: {
+  href: string;
+  label: string;
+  children: ReactNode;
+}) => (
+  <a
+    href={href}
+    target="_blank"
+    rel="noreferrer"
+    aria-label={label}
+    className="flex items-center justify-center w-11 h-11 rounded-xl border border-surface-border bg-surface-raised text-gray-400 hover:text-accent-glow hover:border-accent/50 transition-all duration-200">
+    {children}
+  </a>
+);
