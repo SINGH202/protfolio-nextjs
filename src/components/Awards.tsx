@@ -1,4 +1,5 @@
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
+import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import { config } from "../../data";
 
 export const Awards = () => {
@@ -20,6 +21,16 @@ export const Awards = () => {
               <p className="font-medium text-white">{award.title}</p>
               <p className="text-sm text-gray-500 mt-0.5">{award.issuer}</p>
               <p className="font-mono text-xs text-gray-600 mt-1">{award.period}</p>
+              {award.link && (
+                <a
+                  href={award.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-xs text-accent hover:underline mt-2">
+                  Verify
+                  <OpenInNewIcon className="!text-sm" />
+                </a>
+              )}
             </div>
           </div>
         ))}
