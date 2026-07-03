@@ -44,6 +44,7 @@ export type AwardProps = {
   title: string;
   issuer: string;
   period: string;
+  link?: string;
 };
 
 export type NavItemConfig = {

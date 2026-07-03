@@ -15,8 +15,7 @@ import {
 export const config = {
   name: "Anurag Singh",
   title: "Full-Stack Engineer",
-  tagline:
-    "Next.js · TypeScript · Flutter · Node.js · AWS",
+  tagline: "Next.js · TypeScript · Flutter · Node.js · AWS",
   location: "Uttar Pradesh, India",
   email: "apk.anurag.singh@gmail.com",
   phone: "+91-8874940467",
@@ -38,7 +37,11 @@ export const config = {
     { openInBlank: false, title: "Skills", link: "skills" },
     { openInBlank: false, title: "Education", link: "education" },
     { openInBlank: false, title: "Contact", link: "contact" },
-    { openInBlank: true, title: "Resume", link: "/assets/resume/Anurag-Singh-Resume.pdf" },
+    {
+      openInBlank: true,
+      title: "Resume",
+      link: "/assets/resume/Anurag-Singh-Resume.pdf",
+    },
   ] as NavItemConfig[],
 
   aboutContent: `Full-Stack Engineer with 4+ years of experience building production-grade web and mobile applications using Next.js, React, TypeScript, Flutter, Node.js, PostgreSQL, Redis, and AWS. Experienced in delivering SaaS, EdTech, FinTech, Web3, and community-driven platforms with expertise in serverless architectures, payment integrations, authentication systems, BLE-enabled mobile applications, and real-time communication systems.`,
@@ -54,8 +57,15 @@ export const config = {
     {
       company: "DoersCircle",
       role: "Full-Stack Developer",
-      period: "Aug 2025 – Present",
-      tags: ["TypeScript", "Hono", "AWS Lambda", "PostgreSQL", "Redis", "Stripe"],
+      period: "Aug 2025 – Jul 2026",
+      tags: [
+        "TypeScript",
+        "Hono",
+        "AWS Lambda",
+        "PostgreSQL",
+        "Redis",
+        "Stripe",
+      ],
       highlights: [
         "Architected and maintained a full-stack TypeScript platform using Hono 4.x, AWS Lambda, PostgreSQL, Redis, and Serverless Framework.",
         "Developed and launched platform modules including Events, Masterclasses, Guides, Layoffs, Terms & Conditions, and About Us through a custom CMS workflow.",
@@ -69,7 +79,14 @@ export const config = {
       company: "F22 Labs",
       role: "Frontend Developer",
       period: "Oct 2023 – Aug 2025",
-      tags: ["Next.js", "TypeScript", "Flutter", "TailwindCSS", "Razorpay", "BLE"],
+      tags: [
+        "Next.js",
+        "TypeScript",
+        "Flutter",
+        "TailwindCSS",
+        "Razorpay",
+        "BLE",
+      ],
       highlights: [
         "Developed villa booking and reservation platforms using Next.js, TypeScript, TailwindCSS, Google Maps, and Razorpay payment integration.",
         "Built BLE-enabled mobile applications with secure device communication, Firebase notifications, and location-based services using Flutter.",
@@ -95,11 +112,63 @@ export const config = {
 
   projects: [
     {
+      name: "URL Shortener",
+      subTitle:
+        "URL shortener with authenticated link management, QR codes, and click analytics.",
+      year: "2026",
+      accent: "from-lime-500/20 to-green-500/10",
+      tools: [
+        "Next.js",
+        "TypeScript",
+        "TailwindCSS",
+        "Supabase",
+        "Recharts",
+        "Vercel",
+      ],
+      features: [
+        "Built authenticated link shortening with custom slugs, expiry options, and QR code generation.",
+        "Implemented per-link analytics with click trends, referrer, and country breakdowns using Recharts.",
+        "Added Postgres-backed rate limiting and per-user Row Level Security with Supabase Auth.",
+      ],
+      redirectLink: "https://myshrinkly.vercel.app/",
+      gitLink: "https://github.com/SINGH202/url-shortner",
+    },
+    {
+      name: "RAG-Learning",
+      subTitle:
+        "Retrieval-Augmented Generation app built from scratch to explore modern AI retrieval pipelines.",
+      year: "2026",
+      accent: "from-cyan-500/20 to-blue-500/10",
+      tools: [
+        "Python",
+        "LangChain",
+        "Google Gemini",
+        "ChromaDB",
+        "HuggingFace",
+        "Sentence Transformers",
+      ],
+      features: [
+        "Implemented recursive semantic chunking and Sentence Transformer embeddings with a persistent Chroma vector database.",
+        "Built Maximum Marginal Relevance (MMR) retrieval with manual prompt construction and Google Gemini integration.",
+        "Delivered an interactive CLI chatbot with a modular, production-ready project architecture.",
+      ],
+      redirectLink: "",
+      gitLink: "https://github.com/SINGH202/RAG-Learning",
+    },
+    {
       name: "Doerscircle Platform",
-      subTitle: "SaaS community platform with gated premium content and subscription billing.",
+      subTitle:
+        "SaaS community platform with gated premium content and subscription billing.",
       year: "2025",
       accent: "from-emerald-500/20 to-teal-500/10",
-      tools: ["TypeScript", "Next.js", "AWS Lambda", "Redis", "Stripe", "Prismic CMS"],
+      tools: [
+        "TypeScript",
+        "Next.js",
+        "AWS Lambda",
+        "Redis",
+        "Stripe",
+        "Prismic CMS",
+      ],
       features: [
         "Designed automated data synchronization workflows between admin and user-facing systems.",
         "Engineered gated-access architecture for premium resources using JWT-scoped authorization.",
@@ -110,7 +179,8 @@ export const config = {
     },
     {
       name: "Villa Booking Platform",
-      subTitle: "Responsive villa booking platform with dynamic search and payment integration.",
+      subTitle:
+        "Responsive villa booking platform with dynamic search and payment integration.",
       year: "2024",
       accent: "from-sky-500/20 to-blue-500/10",
       tools: ["Next.js", "TailwindCSS", "Razorpay", "Mixpanel", "Google Maps"],
@@ -124,7 +194,8 @@ export const config = {
     },
     {
       name: "Financial EdTech Platform",
-      subTitle: "Course purchasing platform with peer networking and discussion forums.",
+      subTitle:
+        "Course purchasing platform with peer networking and discussion forums.",
       year: "2024",
       accent: "from-violet-500/20 to-purple-500/10",
       tools: ["Next.js", "Razorpay", "TypeScript", "TailwindCSS"],
@@ -137,11 +208,49 @@ export const config = {
       gitLink: "",
     },
     {
+      name: "SmartLock BLE App",
+      subTitle:
+        "Flutter app communicating with smart lock hardware over Bluetooth Low Energy (BLE).",
+      year: "2024",
+      accent: "from-indigo-500/20 to-blue-500/10",
+      tools: ["Flutter", "Dart", "BLE", "REST APIs"],
+      features: [
+        "Built Bluetooth device discovery and secure connection to smart locks.",
+        "Implemented the authentication flow and improved BLE connection reliability.",
+        "Integrated backend REST APIs with the mobile application.",
+      ],
+      redirectLink: "",
+      gitLink: "",
+    },
+    {
+      name: "MultiCall",
+      subTitle:
+        "Cross-platform group calling application built using Flutter and Firebase.",
+      year: "2024",
+      accent: "from-rose-500/20 to-pink-500/10",
+      tools: ["Flutter", "Firebase", "Firebase Cloud Messaging", "REST APIs"],
+      features: [
+        "Developed the group calling interface.",
+        "Implemented push notifications and improved notification reliability.",
+        "Connected the frontend with backend services.",
+      ],
+      redirectLink: "",
+      gitLink: "",
+    },
+    {
       name: "Carbon Credit Marketplace",
-      subTitle: "Blockchain-based marketplace with Web3 payments and OAuth authentication.",
+      subTitle:
+        "Blockchain-based marketplace with Web3 payments and OAuth authentication.",
       year: "2023",
       accent: "from-amber-500/20 to-orange-500/10",
-      tools: ["Next.js", "MetaMask", "Stripe", "Ethereum", "OAuth", "TailwindCSS"],
+      tools: [
+        "Next.js",
+        "MetaMask",
+        "Stripe",
+        "Ethereum",
+        "OAuth",
+        "TailwindCSS",
+      ],
       features: [
         "Implemented MetaMask wallet integration and Ethereum payment flows.",
         "Built Stripe and OAuth authentication for hybrid Web2/Web3 access.",
@@ -155,11 +264,26 @@ export const config = {
   skillCategories: [
     {
       title: "Frontend",
-      skills: ["React", "Next.js", "TypeScript", "JavaScript", "Flutter", "TailwindCSS", "Redux", "Vite"],
+      skills: [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "JavaScript",
+        "Flutter",
+        "TailwindCSS",
+        "Redux",
+        "Vite",
+      ],
     },
     {
       title: "Backend",
-      skills: ["Node.js", "Express.js", "REST APIs", "JWT Authentication", "Hono"],
+      skills: [
+        "Node.js",
+        "Express.js",
+        "REST APIs",
+        "JWT Authentication",
+        "Hono",
+      ],
     },
     {
       title: "Databases",
@@ -167,15 +291,50 @@ export const config = {
     },
     {
       title: "Cloud & DevOps",
-      skills: ["AWS Lambda", "Serverless Framework", "Docker", "Firebase", "CI/CD", "Vercel", "Netlify"],
+      skills: [
+        "AWS Lambda",
+        "Serverless Framework",
+        "Docker",
+        "Firebase",
+        "Google Cloud",
+        "CI/CD",
+        "Vercel",
+        "Netlify",
+      ],
     },
     {
       title: "Payments & Integrations",
-      skills: ["Stripe", "Razorpay", "Mailgun", "Mailchimp", "Prismic CMS", "Mixpanel"],
+      skills: [
+        "Stripe",
+        "Razorpay",
+        "Mailgun",
+        "Mailchimp",
+        "Prismic CMS",
+        "Mixpanel",
+      ],
+    },
+    {
+      title: "AI & Developer Productivity",
+      skills: [
+        "Retrieval-Augmented Generation (RAG)",
+        "Prompt Engineering",
+        "AI-Assisted Development",
+        "Claude Code",
+        "Cursor",
+        "GitHub Copilot",
+        "CodeRabbit",
+      ],
     },
     {
       title: "Mobile",
-      skills: ["Flutter", "BLE (GATT)", "Firebase Notifications", "Android Studio", "Xcode", "TestFlight"],
+      skills: [
+        "Flutter",
+        "BLE (GATT)",
+        "Firebase Notifications",
+        "Android Studio",
+        "Xcode",
+        "TestFlight",
+      ],
     },
     {
       title: "Tooling",
@@ -216,6 +375,18 @@ export const config = {
   ] as EducationCardProps[],
 
   awards: [
+    {
+      title: "Generative AI: Introduction and Applications",
+      issuer: "IBM",
+      period: "Jun 2026",
+      link: "https://www.coursera.org/account/accomplishments/verify/D7F6XD6XAOBR",
+    },
+    {
+      title: "Generative AI: Prompt Engineering",
+      issuer: "IBM",
+      period: "Jun 2026",
+      link: "https://www.coursera.org/account/accomplishments/verify/88VGH4NG65FP",
+    },
     {
       title: "Most Valuable Player (MVP)",
       issuer: "F22 Labs",
