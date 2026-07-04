@@ -116,6 +116,9 @@ export const config = {
       subTitle:
         "URL shortener with authenticated link management, QR codes, and click analytics.",
       year: "2026",
+      category: "Web",
+      type: "personal",
+      isNew: true,
       accent: "from-lime-500/20 to-green-500/10",
       tools: [
         "Next.js",
@@ -138,6 +141,9 @@ export const config = {
       subTitle:
         "Retrieval-Augmented Generation app built from scratch to explore modern AI retrieval pipelines.",
       year: "2026",
+      category: "AI",
+      type: "personal",
+      isNew: true,
       accent: "from-cyan-500/20 to-blue-500/10",
       tools: [
         "Python",
@@ -160,6 +166,8 @@ export const config = {
       subTitle:
         "SaaS community platform with gated premium content and subscription billing.",
       year: "2025",
+      category: "Web",
+      type: "professional",
       accent: "from-emerald-500/20 to-teal-500/10",
       tools: [
         "TypeScript",
@@ -182,6 +190,8 @@ export const config = {
       subTitle:
         "Responsive villa booking platform with dynamic search and payment integration.",
       year: "2024",
+      category: "Web",
+      type: "professional",
       accent: "from-sky-500/20 to-blue-500/10",
       tools: ["Next.js", "TailwindCSS", "Razorpay", "Mixpanel", "Google Maps"],
       features: [
@@ -197,6 +207,8 @@ export const config = {
       subTitle:
         "Course purchasing platform with peer networking and discussion forums.",
       year: "2024",
+      category: "Web",
+      type: "professional",
       accent: "from-violet-500/20 to-purple-500/10",
       tools: ["Next.js", "Razorpay", "TypeScript", "TailwindCSS"],
       features: [
@@ -212,6 +224,8 @@ export const config = {
       subTitle:
         "Flutter app communicating with smart lock hardware over Bluetooth Low Energy (BLE).",
       year: "2024",
+      category: "Mobile",
+      type: "professional",
       accent: "from-indigo-500/20 to-blue-500/10",
       tools: ["Flutter", "Dart", "BLE", "REST APIs"],
       features: [
@@ -227,6 +241,8 @@ export const config = {
       subTitle:
         "Cross-platform group calling application built using Flutter and Firebase.",
       year: "2024",
+      category: "Mobile",
+      type: "professional",
       accent: "from-rose-500/20 to-pink-500/10",
       tools: ["Flutter", "Firebase", "Firebase Cloud Messaging", "REST APIs"],
       features: [
@@ -242,6 +258,8 @@ export const config = {
       subTitle:
         "Blockchain-based marketplace with Web3 payments and OAuth authentication.",
       year: "2023",
+      category: "Web3",
+      type: "professional",
       accent: "from-amber-500/20 to-orange-500/10",
       tools: [
         "Next.js",

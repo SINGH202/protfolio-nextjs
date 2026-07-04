@@ -21,6 +21,8 @@ export type LinkIconProps = {
   tooltip: string;
 };
 
+export type ProjectCategory = "Web" | "Mobile" | "AI" | "Web3";
+
 export type ProjectProps = {
   name: string;
   subTitle: string;
@@ -30,6 +32,9 @@ export type ProjectProps = {
   gitLink?: string;
   redirectLink?: string;
   accent: string;
+  category: ProjectCategory;
+  type: "personal" | "professional";
+  isNew?: boolean;
 };
 
 export type ExperienceProps = {

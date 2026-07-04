@@ -1,6 +1,7 @@
 import { config } from "../../data";
 import { ExperienceProps } from "../../type";
 import { SectionHeader } from "./SectionHeader";
+import { Reveal } from "./Reveal";
 
 export const Experience = () => {
   return (
@@ -8,7 +9,9 @@ export const Experience = () => {
       <SectionHeader title="Experience" subtitle="02" />
       <div className="flex flex-col gap-8">
         {config.experience.map((job, index) => (
-          <ExperienceCard key={`${job.company}-${index}`} {...job} />
+          <Reveal key={`${job.company}-${index}`} delay={index * 80}>
+            <ExperienceCard {...job} />
+          </Reveal>
         ))}
       </div>
     </section>
